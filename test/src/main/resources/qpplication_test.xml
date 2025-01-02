@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XML 파일 선언, UTF-8 인코딩을 사용하고, XML 스키마를 지정 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- 첫 번째 Bean 정의: id="ps01"인 PrintString 클래스 -->
+    <bean id="ps01" class="com.care.di_test.PrintString"></bean>
+    
+    <!-- 두 번째 Bean 정의: id="pr"인 PrintBean 클래스 -->
+    <bean id="pr" class="com.care.di_test.PrintBean">
+        <!-- ps01이라는 id를 가진 PrintString Bean을 참조하여 ps 프로퍼티에 주입 -->
+        <property name="ps">
+            <ref bean="ps01"/> <!-- ps01 Bean을 참조 -->
+        </property>
+        
+        <!-- print라는 프로퍼티에 값 "안녕"을 주입 -->
+        <property name="print">
+            <value>안녕</value> <!-- "안녕" 문자열 값이 print 프로퍼티에 주입 -->
+        </property>
+    </bean>
+    
+</beans>

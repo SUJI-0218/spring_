@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	<context:property-placeholder
+		location="classpath:db.properties.home_test" />
+	<bean id="db01" class="com.care.home_test.DBClass">
+		<property name="id" value="aaa"></property>
+		<property name="pwd" value="bbb"></property>
+	</bean>
+	<bean id="db02" class="com.care.home_test.DBClass">
+		<constructor-arg value="${db.id} "></constructor-arg>
+		<constructor-arg value="${db.pwd} "></constructor-arg>
+
+	</bean>
+</beans>

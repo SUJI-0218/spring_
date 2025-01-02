@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>로그인 페이지 입니다</h3><br>
-<h3>el 표기법 : ${ login }</h3><br>
-<h3><a href="/root/logout">로그아웃 페이지</a> <a href="/root/index">기본페이지 페이지</a></h3>
+로그인 페이지 <br>
+	login : ${ login } <br>
 </body>
 </html>

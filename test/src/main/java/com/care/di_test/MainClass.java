@@ -8,7 +8,5 @@ public class MainClass {
 				GenericXmlApplicationContext ctx = new GenericXmlApplicationContext( path );
 		PrintBean stb = ctx.getBean("main 사용", PrintBean.class);
 		stb.Print();
-		
 	}
-
 }
