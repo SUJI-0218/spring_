@@ -46,7 +46,7 @@ public class MemberController {
 //		return "redirect:/";
 		//index로 경로요청을 하면 경로가 /member/가 되어야하는데 register로 출력되는거를 볼수가 있음,redirect는 재요청을 해주세요! 라는 뜻! 모든내용을 다 처리하고 사용자한테 기본페이지를 요청하는 거임
 		//사용자에게 다 보내고 다시 기본페이지 출력하는거
-		return "redirect:test"; // 사용자한테 이 값을 보내서 재접속하는 느낌으로 보면 됨, 그래서 test가 보이게 됨
+    	return "redirect:test"; // 사용자한테 이 값을 보내서 재접속하는 느낌으로 보면 됨, 그래서 test가 보이게 됨
 //		return "forward:test"; //경로는 registr로 고정되는데 서버내에서 자기들끼리 통신을 함
 		
 		//이 둘의 차이는 redirect는 사용자에게 보내고 재접속하는 것이라 get방식이라고 보면 됨

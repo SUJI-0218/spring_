@@ -36,7 +36,7 @@ public class HomeController {
 //		return "home";
 //	}
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model) { //이 코드로 인해서 member를 입력하지 않고 index만 출력해도 된다!
 		
 		return "index";
 	}

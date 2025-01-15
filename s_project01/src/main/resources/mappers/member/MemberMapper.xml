@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- MyBatis Mapper 파일 정의 -->
+<mapper namespace="com.care.root.mybatis.member.MemberMapper"><!-- 여기에서 db랑 연결되는 명령어가 실행됨 -->
+<!-- 서비스랑 이 친구랑 연결을 바로 못해서 mapper를 중간에 다리를 놓아줌 -->
+<!-- namespace: 이 Mapper가 연결된 DAO(우리는 dao가 없기에 mybatis랑 연결하기 위한 인터페이스를 지정 -->
+    <!-- org.care.root.mybatis.member.MemberMapper와 연결됨 -->
+    
+    <!-- SQL 결과를 자바 객체(MemberDTO)와 매핑하기 위한 설정 -->
+
+<resultMap type="com.care.root.member.dto.MemberDTO"
+	id="member">
+	<id property="id" column="id" />
+	<result property="pwd" column="pw" />
+	<result property="addr" column="addr" />
+	<result property="sessionId" column="session_id" />
+</resultMap> <!-- 데이터베이스 에 가지고 있는 데이터랑 자바가 가지고 있는 데이터때문에 사용 -->
+<select id = "getMember" resultMap="member">
+select * from membership where id = #{id}
+</select>
+<select id = "getList" resultMap="member">
+select * from membership
+</select>
+<!--  
+<select id = "getData" resultMap="member">
+select * from membership
+<if test="id != null">where id = #{id}</if>
+</select>
+-->
+<select id = "getData" resultMap="member">
+select * from membership
+<if test="bbb != null">where id = #{bbb}</if>
+</select>
+<insert id="register">
+insert into membership(id, pw, addr) values(#{id}, #{pwd}, #{addr})<!-- membership(id, pw, addr)이거는 컬럼 명, values(#{id}, #{pwd}, #{addr}dto가 가지고 있는 변수명 -->
+</insert>
+<update id="keepLogin">
+update membership set session_id = #{sessionId} where id=#{id}
+</update>
+<select id="getSessionId" resultMap="member">
+select * from membership where session_id=#{sessionId}
+</select>
+
+</mapper>
